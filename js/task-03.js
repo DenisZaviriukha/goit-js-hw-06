@@ -12,3 +12,31 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const doneArray = []
+
+const listEl = document.querySelector('.gallery')
+
+  listEl.classList.add('list_third')
+
+const itemsAdding = images.map(element => {
+
+  const itemEl = document.createElement('li')
+
+    itemEl.classList.add('item_third')
+  
+  const imgEl = document.createElement('img')
+
+    imgEl.classList.add('img_third')
+
+    imgEl.src = element.url
+    imgEl.alt = element.alt
+    imgEl.width = 320;
+  
+  itemEl.insertAdjacentHTML('beforeend',`<img src=${imgEl.src} alt=${imgEl.alt} width=${imgEl.width}></img>`)
+
+  doneArray.push(itemEl)
+
+})
+
+listEl.append(...doneArray)
